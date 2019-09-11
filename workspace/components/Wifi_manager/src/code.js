@@ -80,6 +80,12 @@ $(document).ready(function(){
 		$( "#wifi" ).slideDown( "fast", function() {});
 	});
 
+	$("#cancel-con").on("click", function() {
+		selectedSSID = "";
+		$( "#connect-wait" ).slideUp( "fast", function() {});
+		$( "#wifi" ).slideDown( "fast", function() {});
+	});
+
 	$("#manual_cancel").on("click", function() {
 		selectedSSID = "";
 		$( "#connect" ).slideUp( "fast", function() {});

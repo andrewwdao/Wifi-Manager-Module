@@ -1,3 +1,5 @@
+Copyright (c) 2019 Minh-An Dao
+
 Copyright (c) 2017-2019 Tony Pottier
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

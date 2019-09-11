@@ -75,7 +75,9 @@ p {
     cursor: pointer;
 }
 #manual_add {
-    width: 440px;
+    text-align:center;
+    width: 50%;
+    margin: 220px;
 }
 .brdb {
     border-bottom: 1px solid #888;

@@ -3,7 +3,7 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := CARD-SCANNER
+PROJECT_NAME := WIFI-MANAGER
 
 include $(IDF_PATH)/make/project.mk
 
