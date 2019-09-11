@@ -44,17 +44,8 @@ static const char TAG[] = "main";
  */
 void monitoring_task(void *pvParameter)
 {
-	// char* staIP=NULL;
-	// struct ip4_addr ip4;
-	// ip4.addr = ip;
-	// tcpip_adapter_ip_info_t ipInfo; 
-	// char str[256];
-	// tcpip_adapter_get_ip_info(TCPIP_ADAPTER_IF_STA, &ipInfo);
 	for(;;){
 		ESP_LOGI(TAG, "free heap: %d",esp_get_free_heap_size());
-		// printf("My IP: " IPSTR "\n", IP2STR(&ipInfo.ip));
-		// strcpy(staIP, ip4addr_ntoa(&ip4));
-		// ESP_LOGI(TAG, "Set STA IP String to: %s", wifi_manager_sta_ip);
 		vTaskDelay( pdMS_TO_TICKS(5000) );
 	}
 }
@@ -64,8 +55,7 @@ void cb_connection_ok(void *pvParameter){
 	ESP_LOGI(TAG, "I have a connection!");
 }
 
-void app_main()
-{
+extern "C" void app_main() {
 	/* start the wifi manager */
 	wifi_manager_start();
 

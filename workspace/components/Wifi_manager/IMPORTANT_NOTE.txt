@@ -1,0 +1,2 @@
+When you compile and upload to esp32, if you want to change how it looks (.css), you need to clean the project first (F6) then Build it (F7) again!
+If you only want to change the content, you don't need to clean before build!

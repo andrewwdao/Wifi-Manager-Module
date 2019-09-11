@@ -4,10 +4,10 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<script src="/jquery.js"></script>
-		<link rel="stylesheet" href="/style.css">
-		<script src="/code.js"></script>
-		<title>Smart Candy Box 2</title>
+		<script src="./jquery.js"></script>
+		<link rel="stylesheet" href="./style.css">
+		<script src="./code.js"></script>
+		<title>Smart Candy Box</title>
 	</head>
 	<body>
 		<div id="app">
@@ -22,14 +22,14 @@
 							<div class="ape"><div class="w0"><div class="pw"><span></span></div></div></div>
 						</section>
 					</div>
-					<h2>Manual Connect:</h2>
+					<!-- <h2>Manual Connect:</h2> -->
 					<section id="manual_add">
-					<div class="ape">New Wifi SSID<div>
+					<div class="ape"><h2>Manual Connect</h2><div>
 					</section>
 					<h2>Available Network:</h2>
 					<section id="wifi-list">
 					</section>
-					<div id="pwrdby"><em>Powered by </em><a id="acredits" href="#"><strong>esp32-wifi-manager</strong></a>.</div>
+					<div id="pwrdby"><strong> © 2019 Konel Inc.</strong><br />Modified from <a id="acredits" href="#">Esp32 wifi manager</a></div>
 				</div>
 				<div id="connect_manual">
 					<header>
@@ -121,18 +121,9 @@
 			</header>
 			<h2></h2>
 			<section>
-				<h2>
-					<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© ️</font></font></span>
-					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 2019 Konel Inc.</font></font>
-				</h2>
-				<p>Modified from <strong>esp32-wifi-manager</strong>, &copy; 2017-2019, Tony Pottier. Licensed under the MIT License.</p>
-				<p>
-					This app would not be possible without the following libraries:
-					<ul>
-						<li>SpinKit, &copy;  2015, Tobias Ahlin. Licensed under the MIT License.</li>
-						<li>jQuery, The jQuery Foundation. Licensed under the MIT License.</li>
-						<li>cJSON, &copy; 2009-2017, Dave Gamble and cJSON contributors. Licensed under the MIT License.</li>
-					</ul>
+				<p id="main-cre"><strong>&copy; 2019 Konel Inc.</strong></p>
+				<p>Modified by Minh-An Dao.<br />Modified from <strong>esp32 wifi manager</strong>, &copy; 2017-2019, Tony Pottier. Licensed under the MIT License.<br />
+				This app would not be possible without the following libraries:<br /> - SpinKit, &copy;  2015, Tobias Ahlin. Licensed under the MIT License.<br /> - jQuery, The jQuery Foundation. Licensed under the MIT License.<br /> - cJSON, &copy; 2009-2017, Dave Gamble and cJSON contributors. Licensed under the MIT License.
 				</p>
 				
 			</section>

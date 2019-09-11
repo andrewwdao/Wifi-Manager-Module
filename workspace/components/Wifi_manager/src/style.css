@@ -1,5 +1,8 @@
 body {
     background-color: #eee;
+    background-image: url("./background.jpg");
+    background-size: cover;
+    background-position: center;
     border: 0;
     margin: 0;
     font: 1.1em tahoma, arial, sans-serif;
@@ -71,13 +74,18 @@ p {
 .ape:hover {
     cursor: pointer;
 }
+#manual_add {
+    text-align:center;
+    width: 50%;
+    margin: 220px;
+}
 .brdb {
     border-bottom: 1px solid #888;
 }
-header {
+/* header {
     background-color: #fff;
     border-bottom: 1px solid #888;
-}
+} */
 section {
     background-color: #fff;
     border-bottom: 1px solid #888;
@@ -88,14 +96,14 @@ h1 {
     text-align: center;
     margin: 0;
     padding: 15px;
-    font-size: 1.4em
+    font-size: 1.7em
 }
 h2 {
     margin: 0;
     margin-top: 20px;
     padding: 10px;
-    text-transform: uppercase;
-    color: #888;
+    /* text-transform: uppercase; */
+    color: #000;
     font-size: 1.0em
 }
 h3 {
@@ -229,6 +237,14 @@ h3 {
     -webkit-animation-delay: -1.0s;
     animation-delay: -1.0s;
 }
+#pwrdby {
+    font-size:10px;
+    width:100%;
+    text-align:center;
+}
+#main-cre {
+    font-size: 25px;
+}
 @-webkit-keyframes sk-bounce {
     0%, 100% {
         -webkit-transform: scale(0.0)
@@ -247,4 +263,10 @@ h3 {
         -webkit-transform: scale(1.0);
     }
 }
+/* @media (max-width: 500px) {
+    section {
+      width:60%;
+    }
+  } */
+
 /* end of SpinKit */
