@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceRoot}",
                 "${workspaceRoot}/components",
+                "${workspaceRoot}/Wifi_manager",
                 "${workspaceRoot}/build/include",
                 "${workspaceRoot}/build/",
                 "${workspaceFolder}/components/arduino/tools/sdk/include/config",
@@ -148,6 +149,7 @@
                 "path": [
                     "${workspaceRoot}",
                     "${workspaceRoot}/components",
+                    "${workspaceRoot}/Wifi_manager",
                     "${workspaceRoot}/build/include",
                     "${workspaceRoot}/build/",
                     "C:/msys32/home/minha/esp/esp-idf/components",

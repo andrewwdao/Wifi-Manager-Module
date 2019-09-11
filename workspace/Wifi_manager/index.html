@@ -7,14 +7,14 @@
 		<script src="/jquery.js"></script>
 		<link rel="stylesheet" href="/style.css">
 		<script src="/code.js"></script>
-		<title>esp32-wifi-manager</title>
+		<title>Smart Candy Box 2</title>
 	</head>
 	<body>
 		<div id="app">
 			<div id="app-wrap">
 				<div id="wifi">
 					<header>
-						<h1>Wi-Fi</h1>
+						<h1>Smart Candy Box</h1>
 					</header>
 					<div id="wifi-status">
 						<h2>Connected to:</h2>
@@ -22,58 +22,60 @@
 							<div class="ape"><div class="w0"><div class="pw"><span></span></div></div></div>
 						</section>
 					</div>
-					<h2>Manual connect</h2>
+					<h2>Manual Connect:</h2>
 					<section id="manual_add">
-					<div class="ape">ADD (HIDDEN) SSID<div>
+					<div class="ape">New Wifi SSID<div>
 					</section>
-					<h2>or choose a network...</h2>
+					<h2>Available Network:</h2>
 					<section id="wifi-list">
 					</section>
 					<div id="pwrdby"><em>Powered by </em><a id="acredits" href="#"><strong>esp32-wifi-manager</strong></a>.</div>
 				</div>
 				<div id="connect_manual">
 					<header>
-						<h1>Enter Details</h1>
+						<h1>Manual Connect</h1>
 					</header>
-					<h2>Manual Connection</span></h2>
+					<h2>Enter details:</span></h2>
 					<section>
-						<input id="manual_ssid" type="text" placeholder="SSID" value="">
-						<input id="manual_pwd" type="password" placeholder="Password" value="">
+						<input id="manual_ssid" type="text" placeholder="New Wifi SSID" value="">
+						<input id="manual_pwd" type="password" placeholder="New Password" value="">
 					</section>
 					<div class="buttons">
-							<input id="manual_join" type="button" value="Join" data-connect="manual" />
+							<input id="manual_join" type="button" value="Connect" data-connect="manual" />
 							<input id="manual_cancel" type="button" value="Cancel"/>
 					</div>
 				</div>
 				<div id="connect">
 					<header>
-						<h1>Enter Password</h1>
+						<h1><span id="ssid-pwd"></span></h1>
 					</header>
-					<h2>Password for <span id="ssid-pwd"></span></h2>
+					<!-- <h2>Password for <span id="ssid-pwd"></span></h2> -->
 					<section>
 						<input id="pwd" type="password" placeholder="Password" value="">
 					</section>
 					<div class="buttons">
-							<input id="join" type="button" value="Join" />
+							<input id="join" type="button" value="Connect" />
 							<input id="cancel" type="button" value="Cancel"/>
 					</div>
 				</div>
 				<div id="connect-wait">
 					<header>
-						<h1>Please wait...</h1>
+						<h1><span id="ssid-wait"></span></h1>
 					</header>
-					<h2>Connecting to <span id="ssid-wait"></span></h2>
+					<!-- <h2>Connecting to <span id="ssid-wait"></span></h2> -->
+					<h2>Connecting ...</h2>
 					<section>
 						<div id="loading">
 							<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>
-							<p class="tctr">You may lose wifi access while the esp32 recalibrates its radio. Please wait until your device automatically reconnects. This can take up to 30s.</p>
+							<!-- <p class="tctr">You may lose wifi access while the esp32 recalibrates its radio. Please wait until your device automatically reconnects. This can take up to 30s.</p> -->
+							<p class="tctr">You may lose wifi access during this time.<br />Our system will automatically reconnects.<br />Please wait for up to 30s.</p>
 						</div>
 						<div id="connect-success">
-							<h3 class="gr">Success!</h3>
+							<h3 class="gr">Connected!</h3>
 						</div>
 						<div id="connect-fail">
 							<h3 class="rd">Connection failed</h3>
-							<p class="tctr">Please double-check wifi password if any and make sure the access point has good signal.</p>
+							<p class="tctr">Please try again.</p>
 						</div>
 					</section>
 					<div class="buttons">
@@ -103,7 +105,7 @@
 					</div>					
 					<div id="diag-disconnect" class="diag-box">
 						<div class="diag-box-win">
-							<p>Are you sure you would like to disconnect from this wifi?</p>
+							<p>Disconnect This Wifi?</p>
 							<div class="buttons">
 								<input id="no-disconnect" type="button" value="No" />
 								<input id="yes-disconnect" type="button" value="Yes" />
@@ -115,19 +117,24 @@
 		</div>
 		<div id="credits">
 			<header>
-				<h1>About this app...</h1>
+				<h1>About</h1>
 			</header>
 			<h2></h2>
 			<section>
-				<p><strong>esp32-wifi-manager</strong>, &copy; 2017-2019, Tony Pottier<br />Licender under the MIT License.</p>
+				<h2>
+					<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© ️</font></font></span>
+					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 2019 Konel Inc.</font></font>
+				</h2>
+				<p>Modified from <strong>esp32-wifi-manager</strong>, &copy; 2017-2019, Tony Pottier. Licensed under the MIT License.</p>
 				<p>
 					This app would not be possible without the following libraries:
+					<ul>
+						<li>SpinKit, &copy;  2015, Tobias Ahlin. Licensed under the MIT License.</li>
+						<li>jQuery, The jQuery Foundation. Licensed under the MIT License.</li>
+						<li>cJSON, &copy; 2009-2017, Dave Gamble and cJSON contributors. Licensed under the MIT License.</li>
+					</ul>
 				</p>
-				<ul>
-					<li>SpinKit, &copy;  2015, Tobias Ahlin. Licensed under the MIT License.</li>
-					<li>jQuery, The jQuery Foundation. Licensed under the MIT License.</li>
-					<li>cJSON, &copy; 2009-2017, Dave Gamble and cJSON contributors. Licensed under the MIT License.</li>
-				</ul>
+				
 			</section>
 			<div class="buttons">
 				<input id="ok-credits" type="button" value="OK" class="ctr" />
