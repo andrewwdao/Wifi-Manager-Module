@@ -81,7 +81,7 @@
 			.ape:hover {
 				cursor: pointer;
 			}
-			#manual_add {
+			#m_add {
 				padding: 0 0 13px 0;
 				background-color: #fff;
 				font-size: 21px;
@@ -135,14 +135,14 @@
 			#connect_manual {
 				display: none;
 			}
-			#manual_ssid {
+			#m_ssid {
 				border: 1px solid #000;
 				width: 95%;
 				margin: 25px auto;
 				padding: 10px 0px 10px 10px;
 				display: block
 			}
-			#manual_pwd {
+			#m_pwd {
 				border: 1px solid #000;
 				width: 95%;
 				margin: 25px auto;
@@ -160,13 +160,12 @@
 				margin:10px 0 0 15%;
 				float: left;
 			}
-			#manual_join {
+			#m_join {
 				margin:10px 0 0 15%;
 				float: left;
 			}
 			#ok-connect {
 				margin:0 auto;
-				/* float: left; */
 			}
 			#ok-details {
 				margin:10px 15% 0 0;
@@ -180,14 +179,10 @@
 				margin:10px 15% 0 0;
 				float: right;
 			}
-			#manual_cancel {
+			#m_cancel {
 				margin:10px 15% 0 0;
 				float: right;
 			}
-			/* #cancel-con {
-				margin:10px 15% 0 0;
-				float: right;
-			} */
 			#yes-disconnect {
 				display: inline-block;
 				margin-left: 20px;
@@ -315,7 +310,7 @@
 							<div class="ape"><div class="w0"><div class="pw"><span></span></div></div></div>
 						</section>
 					</div>
-					<section id="manual_add">
+					<section id="m_add">
 					<div class="ape"><h2>Manual Connect</h2><div>
 					</section>
 					<h2>Available Network</h2>
@@ -329,12 +324,12 @@
 					</header>
 					<h2>Enter details</span></h2>
 					<section>
-						<input id="manual_ssid" type="text" placeholder="New Wifi SSID" value="">
-						<input id="manual_pwd" type="password" placeholder="New Password" value="">
+						<input id="m_ssid" type="text" placeholder="New Wifi SSID" value="">
+						<input id="m_pwd" type="password" placeholder="New Password" value="">
 					</section>
 					<div class="buttons">
-							<input id="manual_join" type="button" value="Connect" data-connect="manual" />
-							<input id="manual_cancel" type="button" value="Cancel"/>
+							<input id="m_join" type="button" value="Connect" data-connect="manual" />
+							<input id="m_cancel" type="button" value="Cancel"/>
 					</div>
 				</div>
 				<div id="connect">

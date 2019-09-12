@@ -47,7 +47,7 @@ $(document).ready(function(){
 		$( "#connect-details" ).slideDown( "fast", function() {});
 	});
 
-	$("#manual_add").on("click", ".ape", function() {
+	$("#m_add").on("click", ".ape", function() {
 		selectedSSID = $(this).text();
 		$( "#ssid-pwd" ).text(selectedSSID);
 		$( "#wifi" ).slideUp( "fast", function() {});
@@ -79,14 +79,7 @@ $(document).ready(function(){
 		$( "#connect_manual" ).slideUp( "fast", function() {});
 		$( "#wifi" ).slideDown( "fast", function() {});
 	});
-
-	// $("#cancel-con").on("click", function() {
-	// 	selectedSSID = "";
-	// 	$( "#connect-wait" ).slideUp( "fast", function() {});
-	// 	$( "#wifi" ).slideDown( "fast", function() {});
-	// });
-
-	$("#manual_cancel").on("click", function() {
+	$("#m_cancel").on("click", function() {
 		selectedSSID = "";
 		$( "#connect" ).slideUp( "fast", function() {});
 		$( "#connect_manual" ).slideUp( "fast", function() {});
@@ -97,7 +90,7 @@ $(document).ready(function(){
 		performConnect();
 	});
 
-	$("#manual_join").on("click", function() {
+	$("#m_join").on("click", function() {
 		performConnect($(this).data('connect'));
 	});
 	
@@ -189,8 +182,8 @@ function performConnect(conntype){
 	var pwd;
 	if (conntype == 'manual') {
 		//Grab the manual SSID and PWD
-		selectedSSID=$('#manual_ssid').val();
-		pwd = $("#manual_pwd").val();
+		selectedSSID=$('#m_ssid').val();
+		pwd = $("#m_pwd").val();
 	}else{
 		pwd = $("#pwd").val();
 	}
