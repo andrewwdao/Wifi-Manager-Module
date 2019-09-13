@@ -28,12 +28,15 @@ extern "C" void app_main() {
   #endif
   
   // initArduino();
-  // SERIAL_BEGIN(); 
+  // SERIAL_BEGIN(); //must include config.h (defined there)
 
   // Core0CombinedTask_init();
   // Core1CombinedTask_init();
-  wifiManager_init();
+  wifiManager_init(); //put this function anywhere you want to call the web server
 
+  // ESP_LOGI("main", "%s",wifiSSID_read());
+  // ESP_LOGI("main", "%s",wifiPASS_read());
+  // vTaskDelay(5000);
   #ifdef TASKS_MONITOR
   TASKS_MONITOR_init();
   #endif
