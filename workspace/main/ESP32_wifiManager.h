@@ -18,10 +18,8 @@
 #include "esp_system.h"
 #include "esp_log.h"
 #include "wifi_manager.h"
-//#include "Preferences.h" // this library save in NVS - non volatile storage memory (in flash! not EEPROM, perfect!)
-#include <nvs.h>
-#include <nvs_flash.h>
-// #include <WiFi.h> //for arduino component esp32
+#include <WiFi.h> //for arduino component esp32
+#include "debugConfig.h"
 //#include "config.h"
 
 // ------ Public constants ------------------------------------
@@ -34,11 +32,11 @@ void wifiManager_init();
 /**
 Read Wifi SSID from the NVS - non volatile system
 **/
-uint8_t* wifiSSID_read();
+String wifiSSID_read();
 /**
 Read Wifi password from the NVS - non volatile system
 **/
-uint8_t* wifiPASS_read();
+String wifiPASS_read();
 // ------ Public variable -------------------------------------
 //extern SemaphoreHandle_t baton; //declared in core0 cpp
 

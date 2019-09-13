@@ -38,16 +38,16 @@ void wifiManager_init() {
 	wifi_manager_set_callback(EVENT_STA_GOT_IP, &got_cnted);
 }//end wifiManager_init
 //------------------------------------------
-uint8_t* wifiSSID_read() {
+String wifiSSID_read() {
   wifi_config_t* wifiSSID;
   wifiSSID = wifi_manager_get_wifi_sta_config();
-  return wifiSSID->sta.ssid;
+  return (String)((char*)(wifiSSID->sta.ssid));
 }//end wifiSSID_read
 //------------------------------------------
-uint8_t* wifiPASS_read() {
+String wifiPASS_read() {
   wifi_config_t* wifiPASS;
   wifiPASS = wifi_manager_get_wifi_sta_config();
-  return wifiPASS->sta.password;
+  return (String)((char*)(wifiPASS->sta.password));
 }//end wifiPASS_read
 //------------------------------------------
 #endif //end __ESP32_WIFI_MANAGER_CPP

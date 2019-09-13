@@ -1,19 +1,19 @@
 /*------------------------------------------------------------*-
-  ID CARD SCANNER - MASTER FILE
+  WIFI MANAGER - MASTER FILE
   (c) An Minh Dao 2019
-  version 2.00 - 10/02/2019
+  version 1.00 - 13/09/2019
 ---------------------------------------------------------------
 *
 * REMEMBER to define in c_cpp_properties.json as well
 * 
 --------------------------------------------------------------*/
-
-// #include "config.h"
-// #include "Arduino.h"
+#include <WiFi.h> //for arduino component esp32
+#include "ESP32_wifiManager.h"
+// #include "NI_TASKS_MONITOR.h"
 // #include "core0.h"
 // #include "core1.h"
-// #include "NI_TASKS_MONITOR.h"
-#include "ESP32_wifiManager.h"
+#include "debugConfig.h"
+// #include "config.h"
 
 SemaphoreHandle_t baton;
 #ifdef TASKS_MONITOR
@@ -27,16 +27,19 @@ extern "C" void app_main() {
   vSemaphoreCreateBinary(taskMonitor_baton); //initialize binary semaphore //baton = xSemaphoreCreateBinary(); //this works too but not as good as the current use
   #endif
   
-  // initArduino();
-  // SERIAL_BEGIN(); //must include config.h (defined there)
+   initArduino();
+   SERIAL_BEGIN(); //must include config.h (defined there)
 
   // Core0CombinedTask_init();
   // Core1CombinedTask_init();
   wifiManager_init(); //put this function anywhere you want to call the web server
 
-  // ESP_LOGI("main", "%s",wifiSSID_read());
-  // ESP_LOGI("main", "%s",wifiPASS_read());
-  // vTaskDelay(5000);
+  while (1) {
+    D_PRINTLN(wifiSSID_read());
+    D_PRINTLN(wifiPASS_read());
+    vTaskDelay(500);
+  }
+
   #ifdef TASKS_MONITOR
   TASKS_MONITOR_init();
   #endif
