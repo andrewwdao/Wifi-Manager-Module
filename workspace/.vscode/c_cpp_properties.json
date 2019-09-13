@@ -9,6 +9,7 @@
                 "${workspaceRoot}/components/Wifi_manager/src",
                 "${workspaceRoot}/build/include",
                 "${workspaceRoot}/build/",
+                "${workspaceFolder}/components/arduino",
                 "${workspaceFolder}/components/arduino/tools/sdk/include/config",
                 "C:/msys32/opt/xtensa-esp32-elf/include",
                 "C:/msys32/opt/xtensa-esp32-elf/xtensa-esp32-elf/include",

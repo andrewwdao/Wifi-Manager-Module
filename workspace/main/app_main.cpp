@@ -1,67 +1,46 @@
-/*
-Copyright (c) 2017-2019 Tony Pottier
+/*------------------------------------------------------------*-
+  WIFI MANAGER - MASTER FILE
+  (c) An Minh Dao 2019
+  version 1.00 - 13/09/2019
+---------------------------------------------------------------
+*
+* REMEMBER to define in c_cpp_properties.json as well
+* 
+--------------------------------------------------------------*/
+#include <WiFi.h> //for arduino component esp32
+#include "ESP32_wifiManager.h"
+// #include "NI_TASKS_MONITOR.h"
+// #include "core0.h"
+// #include "core1.h"
+#include "debugConfig.h"
+// #include "config.h"
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+SemaphoreHandle_t baton;
+#ifdef TASKS_MONITOR
+SemaphoreHandle_t taskMonitor_baton;
+#endif
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-@file main.c
-@author Tony Pottier
-@brief Entry point for the ESP32 application.
-@see https://idyl.io
-@see https://github.com/tonyp7/esp32-wifi-manager
-*/
-
-#include <stdio.h>
-#include <string.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_system.h"
-#include "esp_log.h"
-#include "wifi_manager.h"
-#include <tcpip_adapter.h>
-
-/* @brief tag used for ESP serial console messages */
-static const char TAG[] = "main";
-
-/**
- * @brief RTOS task that periodically prints the heap memory available.
- * @note Pure debug information, should not be ever started on production code! This is an example on how you can integrate your code with wifi-manager
- */
-void monitoring_task(void *pvParameter)
-{
-	for(;;){
-		ESP_LOGI(TAG, "free heap: %d",esp_get_free_heap_size());
-		vTaskDelay( pdMS_TO_TICKS(5000) );
-	}
-}
-
-/* brief this is an exemple of a callback that you can setup in your own app to get notified of wifi manager event */
-void cb_connection_ok(void *pvParameter){
-	ESP_LOGI(TAG, "I have a connection!");
-}
 
 extern "C" void app_main() {
-	/* start the wifi manager */
-	wifi_manager_start();
+  vSemaphoreCreateBinary(baton); //initialize binary semaphore //baton = xSemaphoreCreateBinary(); //this works too but not as good as the current use
+  #ifdef TASKS_MONITOR
+  vSemaphoreCreateBinary(taskMonitor_baton); //initialize binary semaphore //baton = xSemaphoreCreateBinary(); //this works too but not as good as the current use
+  #endif
+  
+   initArduino();
+   SERIAL_BEGIN(); //must include config.h (defined there)
 
-	/* register a callback as an example to how you can integrate your code with the wifi manager */
-	wifi_manager_set_callback(EVENT_STA_GOT_IP, &cb_connection_ok);
+  // Core0CombinedTask_init();
+  // Core1CombinedTask_init();
+  wifiManager_init(); //put this function anywhere you want to call the web server
 
-	/* your code should go here. Here we simply create a task on core 2 that monitors free heap memory */
-	xTaskCreatePinnedToCore(&monitoring_task, "monitoring_task", 2048, NULL, 1, NULL, 1);
-}
+  while (1) {
+    D_PRINTLN(wifiSSID_read());
+    D_PRINTLN(wifiPASS_read());
+    vTaskDelay(500);
+  }
+
+  #ifdef TASKS_MONITOR
+  TASKS_MONITOR_init();
+  #endif
+}//end main
