@@ -79,18 +79,7 @@ $(document).ready(function(){
 		$( "#connect_manual" ).slideUp( "fast", function() {});
 		$( "#wifi" ).slideDown( "fast", function() {});
 	});
-<<<<<<< HEAD
 	$("#m_cancel").on("click", function() {
-=======
-
-	$("#cancel-con").on("click", function() {
-		selectedSSID = "";
-		$( "#connect-wait" ).slideUp( "fast", function() {});
-		$( "#wifi" ).slideDown( "fast", function() {});
-	});
-
-	$("#manual_cancel").on("click", function() {
->>>>>>> 3a6bf9a9c49b2df830a4d6a988f45a84f29e0646
 		selectedSSID = "";
 		$( "#connect" ).slideUp( "fast", function() {});
 		$( "#connect_manual" ).slideUp( "fast", function() {});
